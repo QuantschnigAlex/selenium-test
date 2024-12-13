@@ -1,0 +1,35 @@
+ScrollBar[VERTICAL] {
+    width: 30px;
+    background-color: #f9f9f9;
+    
+}
+ScrollBar-DownButton {
+	background-image: none;
+}
+  
+ScrollBar-UpButton {
+		background-image: none;
+}
+
+ScrollBar[HORIZONTAL] {
+    width: 15px;
+    background-color: #f9f9f9;
+    
+}
+
+Menu {
+   font: italic bold 25px serif;
+}
+CLabel {
+	font: italic bold 10px serif;
+}
+Button[PUSH], Button[TOGGLE] {
+    color: rgb( 17, 23, 103 );
+    background-color: #f9f9f9;
+}
+Spinner-UpButton {
+	width: 100px;
+}
+Spinner-DownButton {
+	width: 100px;
+}

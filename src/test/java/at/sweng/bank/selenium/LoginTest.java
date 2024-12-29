@@ -26,7 +26,7 @@ public class LoginTest {
 	@BeforeEach
 	public void setUp() {
 		driver = new ChromeDriver();
-		baseUrl = "http://127.0.0.1:62423/rap";
+		baseUrl = "http://127.0.0.1:64579/rap";
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 	}
 
@@ -74,6 +74,27 @@ public class LoginTest {
 		WebElement transferButton = wait.until(ExpectedConditions.presenceOfElementLocated(
 				By.xpath("//div[contains(@style, 'cursor: pointer')]//div[text()='Überweisung']")));
 		assertTrue(transferButton.isDisplayed());
+	}
+	
+	@Test
+	public void testLoginWithUppercaseUsername() {
+		driver.get(baseUrl);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+
+		WebElement username = driver.findElement(By.cssSelector("input[type='text'][autocomplete='off']"));
+		username.sendKeys("A");
+
+		WebElement password = driver.findElement(By.cssSelector("input[type='password']"));
+		password.sendKeys("b");
+
+		WebElement loginButton = driver
+				.findElement(By.xpath("//div[contains(@style, 'cursor: pointer')]//div[text()='Login']"));
+		loginButton.click();
+
+		WebElement transferButton = wait.until(ExpectedConditions.presenceOfElementLocated(
+				By.xpath("//div[contains(@style, 'cursor: pointer')]//div[text()='Überweisung']")));
+		assertFalse(transferButton.isDisplayed());
 	}
 
 	@Test

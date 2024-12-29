@@ -15,7 +15,7 @@ public class BaseTest {
     @BeforeEach
     public void setUp() {
         driver = new ChromeDriver();
-        baseUrl = "http://127.0.0.1:62423/rap";
+        baseUrl = "http://127.0.0.1:52663/rap";
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         driver.get(baseUrl);
         WebElement username = driver.findElement(By.cssSelector("input[type='text'][autocomplete='off']"));
